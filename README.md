@@ -11,6 +11,7 @@ The goal is to simulate how actual data analysts in the e-commerce or retail ind
 ✅ Write business-driven SQL queries to derive insights around pricing, inventory, stock availability, revenue and more
 
 📁 Dataset Overview
+
 The dataset was sourced from Kaggle and was originally scraped from Zepto’s official product listings. It mimics what you’d typically encounter in a real-world e-commerce inventory system.
 
 Each row represents a unique SKU (Stock Keeping Unit) for a product. Duplicate product names exist because the same product may appear multiple times in different package sizes, weights, discounts, or categories to improve visibility – exactly how real catalog data looks.
@@ -38,9 +39,11 @@ outOfStock: Boolean flag indicating stock availability
 quantity: Number of units per package (mixed with grams for loose produce)
 
 🔧 Project Workflow
+
 Here’s a step-by-step breakdown of what we do in this project:
 
 1. Database & Table Creation
+   
 We start by creating a SQL table with appropriate data types:
 
 CREATE TABLE zepto (
@@ -57,6 +60,7 @@ CREATE TABLE zepto (
 );
 
 2. Data Import
+   
 Loaded CSV using pgAdmin's import feature.
 
 If you're not able to use the import feature, write this code instead:
@@ -67,6 +71,7 @@ If you're not able to use the import feature, write this code instead:
 Faced encoding issues (UTF-8 error), which were fixed by saving the CSV file using CSV UTF-8 format.
 
 3. 🔍 Data Exploration
+   
 Counted the total number of records in the dataset
 
 Viewed a sample of the dataset to understand structure and content
@@ -80,11 +85,13 @@ Compared in-stock vs out-of-stock product counts
 Detected products present multiple times, representing different SKUs
 
 4. 🧹 Data Cleaning
+   
 Identified and removed rows where MRP or discounted selling price was zero
 
 Converted mrp and discountedSellingPrice from paise to rupees for consistency and readability
 
 5. 📊 Business Insights
+   
 Found top 10 best-value products based on discount percentage
 
 Identified high-MRP products that are currently out of stock
